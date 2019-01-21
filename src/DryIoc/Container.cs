@@ -10394,10 +10394,12 @@ namespace DryIoc
                 Error.UnableToFindSingleConstructor, type, includeNonPublic);
 
         /// <summary>Looks up for single declared method with the specified name. Returns null if method is not found.</summary>
-        public static MethodInfo GetSingleMethodOrNull(this Type type, string name, bool includeNonPublic = false) =>
-            type.GetTypeInfo().DeclaredMethods
-                .Match(m => (includeNonPublic || m.IsPublic) && m.Name == name)
-                .SingleOrDefaultIfMany();
+        public static MethodInfo GetSingleMethodOrNull(this Type type, string name, bool includeNonPublic = false)
+        {
+            return type.GetTypeInfo().DeclaredMethods
+.Match(m => (includeNonPublic || m.IsPublic) && m.Name == name)
+.SingleOrDefaultIfMany();
+        }
 
         // note: Prefer `GetDeclaredMethod(name)` for supported platforms
         /// <summary>Looks for single declared (not inherited) method by name, and throws if not found.</summary>
