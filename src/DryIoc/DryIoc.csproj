@@ -57,6 +57,7 @@ v3.0.0
 - Release Notes https://bitbucket.org/dadhi/dryioc/wiki/Version3ReleaseNotes
 ]]>
     </PackageReleaseNotes>
+        <LangVersion>7.1</LangVersion>
     </PropertyGroup>
 
     <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3'">
